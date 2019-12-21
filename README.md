@@ -12,7 +12,12 @@ All this features must be available in **local network and internet**. Preferabl
 
 One of the most important things for this project is to don't have to spend money on software or services. The unique cost of this project must be the **Raspberry Pi 3 B+, SD Card 64GB, electricity and internet connection 200 Mbps**.
 
-# Raspbian Configuration
+# Raspbian Installation
+
+The distro I use is [Raspbian Lite](https://www.raspberrypi.org/downloads/raspbian/) because I don't need any UI to interact with. And the software to burn the image 
+into the SD is called [Rufus](https://rufus.ie/) because I am using a Windows as a main OS on current computer.
+
+## Raspbian Configuration
 
 If you want a exposed internet server you must conseider some important things depending of how paranoid you are with security, but for me these are fine:
 - Configure a static IP in Raspberry and router to have the same access IP.
@@ -20,7 +25,7 @@ If you want a exposed internet server you must conseider some important things d
 - Use a DMZ [(demilitarized zone)](https://en.wikipedia.org/wiki/DMZ_(computing)) to save you internal network if someone access to you server.
 - Open the only necessary ports to access from the internet to you server.
 
-## My current network configuration.
+## Current network configuration.
 
 As I said in the last point, its important to have a DMZ wich normally is setting up a firewall (as in my case) to separe the two networks and don't be able to even ping from internal network. The next image ilustre my current network configuration (obviously without showing the real IP): 
 
@@ -57,3 +62,5 @@ To install Apache 2 is really easy only execute the command:
 ```
 sudo apt install apache2
 ```
+
+Obviously in the future you will be needed some modules to be installed when the HTTPS or subdomains are used, but for now it works.
