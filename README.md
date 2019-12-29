@@ -112,3 +112,29 @@ When all process is done, you must go to the web browser and search for **https:
 - [PuTTY](https://www.putty.org/): to connect with SSH on CLI. (Windows)
 - [WinSCP](https://www.putty.org/): to connect via SSH on GUI to transfer files easly. (Windows)
 - [OpenVPN](https://openvpn.net/): to connect the VPN (Multi platform)
+
+# 4 Deployment script
+
+If you are a web developer, this script will be useful to deoploy GitLab branches in the webserver. I tried to create the most easy script to download the project, unzip, move to the server directory and delete the unnecesary files.
+
+```bash
+#!/bin/bash
+
+# Variables declaration used to clone the project.
+PROJECTID="web-curriculum-2"
+PROJECTNAME="${PROJECTID}-master"
+
+# Clone the project repository
+wget https://gitlab.com/emidev98/$PROJECTID/-/archive/master/$PROJECTNAME.zip
+
+# Unzip the project in the same directory
+unzip $PROJECTNAME.zip
+
+# Copy the project in the main apache directory
+cp -r ./$PROJECTNAME/* /var/www/html
+
+# Delete the remaining files in the unzip directory
+rm -r $PROJECTNAME $PROJECTNAME.zip
+
+```
+Link to the **[GitLab repository](https://gitlab.com/emidev98/web-curriculum-2)** and the **[hosted website](http://emilian.cf/)**
